@@ -1,0 +1,46 @@
+body {
+  font-family: 'Noto Serif', sans-serif;
+  background-color: lightcyan;
+  text-align: center;
+  margin: 20px;
+}
+
+nav {
+  font-family: 'Noto Serif', sans-serif;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: darkolivegreen;
+  color: white;
+  padding: 10px;
+}
+
+button {
+  font-family: 'Noto Serif', sans-serif;
+  margin: 5px;
+  padding: 8px;
+  background-color: gray;
+  color: white;
+  border: none;
+}
+
+button:hover {
+  background-color: lightgreen; 
+}
+
+#content {
+  font-family: 'Noto Serif', sans-serif;
+  padding: 20px;
+}
+
+.dark-mode{
+background-color: black;
+color: white;
+
+.uploaded-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 1px solid white;
+  border-radius: 5px;
+}

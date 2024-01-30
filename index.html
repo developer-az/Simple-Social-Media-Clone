@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <style>
+    .uploaded-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+  </style>
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&family=Satisfy&display=swap" rel="stylesheet">
+  <title>Fake Instagram</title>
+</head>
+
+<body>
+  <nav>
+    <button onclick="loadContent('home')">Home</button>
+    <button onclick="loadContent('upload')">Upload</button>
+    <button onclick="loadContent('profile')">Profile</button>
+    <button onclick="changeMode()">Toggle Dark Mode</button>
+  </nav>
+  <div id="content"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
