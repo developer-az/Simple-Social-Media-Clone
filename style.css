@@ -1,46 +1,62 @@
 body {
-  font-family: 'Noto Serif', sans-serif;
-  background-color: lightcyan;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: white;
+  color: black;
   text-align: center;
   margin: 20px;
 }
 
 nav {
-  font-family: 'Noto Serif', sans-serif;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: darkolivegreen;
+  background-color: #333;
   color: white;
-  padding: 10px;
-}
-
-button {
-  font-family: 'Noto Serif', sans-serif;
-  margin: 5px;
-  padding: 8px;
-  background-color: gray;
-  color: white;
-  border: none;
-}
-
-button:hover {
-  background-color: lightgreen; 
-}
-
-#content {
-  font-family: 'Noto Serif', sans-serif;
   padding: 20px;
 }
 
-.dark-mode{
-background-color: black;
-color: white;
+nav a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+  border-radius: 20px; /* Rounded corners */
+  padding: 10px 20px; /* Larger buttons */
+}
+
+nav a:hover {
+  color: lightgrey;
+}
+
+button {
+  margin: 5px;
+  padding: 12px 24px; /* Larger buttons */
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px; /* Rounded corners */
+}
+
+button:hover {
+  background-color: #555;
+}
+
+#content {
+  padding: 20px;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
 
 .uploaded-image {
-  width: 150px;
-  height: 150px;
+  width: 100%; /* Each image takes full width */
+  max-width: 300px; /* Max width for better scalability */
+  height: auto;
   object-fit: cover;
-  border: 1px solid white;
-  border-radius: 5px;
+  border: 1px solid grey;
+  border-radius: 10px; /* Rounded corners */
+  margin: 20px 0; /* Added margin between images */
 }
