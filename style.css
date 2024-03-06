@@ -1,4 +1,5 @@
 body {
+  font-size: larger;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: white;
   color: black;
@@ -19,8 +20,8 @@ nav a {
   text-decoration: none;
   color: white;
   transition: color 0.3s ease;
-  border-radius: 20px; /* Rounded corners */
-  padding: 10px 20px; /* Larger buttons */
+  border-radius: 30px;
+  padding: 20px 20px; 
 }
 
 nav a:hover {
@@ -28,14 +29,14 @@ nav a:hover {
 }
 
 button {
-  margin: 5px;
-  padding: 12px 24px; /* Larger buttons */
-  background-color: #333;
+font-size: large;
+  padding: 24px 24px; 
+  background-color: #101010;
   color: white;
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border-radius: 20px; /* Rounded corners */
+  border-radius: 30px;
 }
 
 button:hover {
@@ -52,11 +53,11 @@ button:hover {
 }
 
 .uploaded-image {
-  width: 100%; /* Each image takes full width */
-  max-width: 300px; /* Max width for better scalability */
+  width: 100%; 
+  max-width: 600px; 
   height: auto;
   object-fit: cover;
   border: 1px solid grey;
-  border-radius: 10px; /* Rounded corners */
-  margin: 20px 0; /* Added margin between images */
+  border-radius: 10px; 
+  margin: 20px 0; 
 }
