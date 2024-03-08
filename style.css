@@ -14,8 +14,8 @@ nav {
   align-items: center;
   background-color: #333;
   color: white;
-  padding: 5px;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
+  padding: 10px;
+
 }
 
 nav a {
