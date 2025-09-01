@@ -477,18 +477,42 @@ function getRandomNumber(min, max) {
 }
 
 function shareImage(imageUrl) {
+  // Validate the URL first
+  if (!imageUrl || typeof imageUrl !== 'string') {
+    showToast('Invalid image URL', 'error');
+    return;
+  }
+
+  // Try to create a proper URL object to validate
+  try {
+    new URL(imageUrl);
+  } catch (e) {
+    showToast('Invalid image URL format', 'error');
+    return;
+  }
+
   if (navigator.share) {
     navigator.share({
       title: 'Check out this photo!',
       text: 'Shared from OptimalSocial',
       url: imageUrl
+    }).catch(error => {
+      console.error('Share failed:', error);
+      // Fallback to clipboard copy
+      copyImageUrlToClipboard(imageUrl);
     });
   } else {
     // Fallback: copy to clipboard
-    navigator.clipboard.writeText(imageUrl).then(() => {
-      showToast('Image URL copied to clipboard!', 'success');
-    });
+    copyImageUrlToClipboard(imageUrl);
   }
+}
+
+function copyImageUrlToClipboard(imageUrl) {
+  navigator.clipboard.writeText(imageUrl).then(() => {
+    showToast('Image URL copied to clipboard!', 'success');
+  }).catch(() => {
+    showToast('Failed to copy URL to clipboard', 'error');
+  });
 }
 
 function editProfile() {
