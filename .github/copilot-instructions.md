@@ -8,7 +8,7 @@ This is a static HTML/CSS/JavaScript social media simulation application develop
 
 ### Quick Start
 Bootstrap and run the application:
-- `npm install` -- completes in ~3 seconds on fresh install, < 1 second on subsequent runs. No build step required for this static application.
+- `npm install` -- completes in < 1 second on fresh install, < 1 second on subsequent runs. No build step required for this static application.
 - **Serve the application using one of these methods:**
   - **Method 1 (Recommended):** `npx http-server -p 8000 -c-1` -- starts immediately, includes hot reload
   - **Method 2:** `python3 -m http.server 8000` -- starts immediately, basic static serving
@@ -18,7 +18,7 @@ Bootstrap and run the application:
 - **Node.js:** Required for package management and http-server
 - **Python 3:** Alternative for serving static files
 - **Dependencies:** `npm install` installs @vercel/postgres and @vercel/speed-insights (deployment-related)
-- **Installation time:** ~3 seconds on fresh install, < 1 second on subsequent runs
+- **Installation time:** < 1 second on fresh install, < 1 second on subsequent runs
 - **NO BUILD PROCESS required** - this is a static web application
 
 ### Running the Application
@@ -145,10 +145,13 @@ Always use playwright browser automation to validate functionality:
 - **Network issues:** Verify server is running with `curl -I http://localhost:8000`
 - **File not found:** Check file paths relative to the served directory
 - **JavaScript errors:** Most common issues are in `script.js` - check browser console
+- **Username prompt issues:** Use playwright browser automation `browser_handle_dialog` with `promptText` and `accept: true`
+- **Upload testing:** Create test images using the SVG template in "Making Changes" section
+- **Port conflicts:** Use different ports (8001, 8002, etc.) if 8000 is busy
 
 ## Timing and Performance Expectations
 
-- **npm install:** ~3 seconds fresh install, < 1 second subsequent - NEVER CANCEL
+- **npm install:** < 1 second fresh install, < 1 second subsequent - NEVER CANCEL
 - **Server startup:** < 3 seconds - NEVER CANCEL  
 - **Page load:** Instant (static files only)
 - **Image upload:** Instant (client-side only, using URL.createObjectURL)
