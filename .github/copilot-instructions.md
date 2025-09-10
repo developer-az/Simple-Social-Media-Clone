@@ -1,4 +1,4 @@
-# Simple Social Media Clone (InstaFamous)
+# Simple Social Media Clone (Fake Instagram)
 
 This is a static HTML/CSS/JavaScript social media simulation application developed for the CMSC122 Computer Programming course. The application simulates Instagram-like functionality with image upload, profile management, and dark mode toggle.
 
@@ -8,7 +8,7 @@ This is a static HTML/CSS/JavaScript social media simulation application develop
 
 ### Quick Start
 Bootstrap and run the application:
-- `npm install` -- completes in ~7 seconds on fresh install, < 1 second on subsequent runs. No build step required for this static application.
+- `npm install` -- completes in ~3 seconds on fresh install, < 1 second on subsequent runs. No build step required for this static application.
 - **Serve the application using one of these methods:**
   - **Method 1 (Recommended):** `npx http-server -p 8000 -c-1` -- starts immediately, includes hot reload
   - **Method 2:** `python3 -m http.server 8000` -- starts immediately, basic static serving
@@ -18,7 +18,7 @@ Bootstrap and run the application:
 - **Node.js:** Required for package management and http-server
 - **Python 3:** Alternative for serving static files
 - **Dependencies:** `npm install` installs @vercel/postgres and @vercel/speed-insights (deployment-related)
-- **Installation time:** ~7 seconds on fresh install, < 1 second on subsequent runs
+- **Installation time:** ~3 seconds on fresh install, < 1 second on subsequent runs
 - **NO BUILD PROCESS required** - this is a static web application
 
 ### Running the Application
@@ -45,10 +45,10 @@ After making ANY changes to the code, ALWAYS run through these complete user sce
 
 3. **Upload Functionality Scenario:**
    - Navigate to Upload section
-   - Click "Choose File" and select any image file
+   - Click "Choose File" and select any image file (SVG, PNG, JPG supported)
    - Click "Upload" button
-   - Verify alert appears with updated followers/likes count
-   - Navigate to "Home" to verify uploaded image displays
+   - Verify alert appears with updated followers/likes count (e.g., "You now have 108 followers and 518 likes!")
+   - Navigate to "Home" to verify uploaded image displays in the feed
    - Navigate to "Profile" to verify follower and like counts increased
 
 4. **Dark Mode Scenario:**
@@ -61,6 +61,7 @@ After making ANY changes to the code, ALWAYS run through these complete user sce
 - **Code syntax:** JavaScript console should show no errors when loading the page
 - **File serving:** All static assets (CSS, JS, images) should load without 404 errors  
 - **Browser compatibility:** Test in at least Chrome/Firefox (application uses standard HTML5/ES6)
+- **Manual testing:** Always use browser automation tools (playwright) to test complete user flows
 - **Quick validation:** Use this Node.js command to verify all components:
 ```bash
 node -e "
@@ -76,6 +77,32 @@ const script = fs.readFileSync('script.js', 'utf8');
 console.log('Validation complete.');
 "
 ```
+
+## Automated Testing and Validation
+
+### Browser Automation Testing
+Always use playwright browser automation to validate functionality:
+```bash
+# Example complete test flow (using playwright tools):
+# 1. Navigate to http://localhost:8000
+# 2. Handle username prompt with test username
+# 3. Test all navigation buttons 
+# 4. Test file upload with test image
+# 5. Verify image appears in feed
+# 6. Verify follower/like counts increase
+# 7. Test dark mode toggle
+# 8. Take screenshots to document functionality
+```
+
+### Screenshot Documentation
+- **ALWAYS** take screenshots after making UI changes
+- Screenshots serve as visual regression testing
+- Store screenshots in `/tmp/playwright-logs/` during testing
+- Key screenshots to capture:
+  - Initial page load state
+  - Each navigation section (Home, Upload, Profile)
+  - Dark mode vs light mode
+  - Before/after upload functionality
 
 ## Common Tasks
 
@@ -102,6 +129,16 @@ console.log('Validation complete.');
 - **Server restart:** Only required if you change server configuration, not for code changes
 - **Testing changes:** Refresh browser after editing files
 - **Always test:** Run through all 4 validation scenarios after ANY code change
+- **Test file creation:** Create test images for upload testing:
+  ```bash
+  # Create simple SVG test image
+  cat > /tmp/test_image.svg << 'EOF'
+  <svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="100" height="100" fill="red"/>
+    <text x="50" y="50" font-family="Arial" font-size="14" fill="white" text-anchor="middle" dominant-baseline="middle">TEST</text>
+  </svg>
+  EOF
+  ```
 
 ### Debugging
 - **Browser DevTools:** F12 to open, check Console tab for JavaScript errors
@@ -111,11 +148,12 @@ console.log('Validation complete.');
 
 ## Timing and Performance Expectations
 
-- **npm install:** ~7 seconds fresh install, < 1 second subsequent - NEVER CANCEL
+- **npm install:** ~3 seconds fresh install, < 1 second subsequent - NEVER CANCEL
 - **Server startup:** < 3 seconds - NEVER CANCEL  
 - **Page load:** Instant (static files only)
 - **Image upload:** Instant (client-side only, using URL.createObjectURL)
 - **Navigation:** Instant (DOM manipulation only)
+- **File validation script:** < 1 second - reliable for CI/CD checks
 
 ## Known Limitations and Notes
 
